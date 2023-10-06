@@ -68,7 +68,19 @@ resource "aws_security_group" "web-server-sg" {
         security_groups = []
         self = false
         },
-    
+
+        {
+        description = "HTTPS from anywhere"
+        from_port = 443
+        to_port = 443
+        protocol = "tcp"
+        cidr_blocks = ["0.0.0.0/0"]
+        ipv6_cidr_blocks = []
+        prefix_list_ids = []
+        security_groups = []
+        self = false
+        },
+
         {
         description = "SSH from anywhere"
         from_port = 22
